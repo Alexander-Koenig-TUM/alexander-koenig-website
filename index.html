@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Dr. Alexander König — Robotik, KI, Innovation</title>
+    <meta name="description" content="Professor für Robotik und verkörperte KI an der TU München. Ehemaliger CEO eines Robotikunternehmens. Keynote Speaker zu Robotik, KI und Innovation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ============================================
+           NAVIGATION — Apple light frosted glass
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: -0.01em;
+            color: #1d1d1f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #424245;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover { color: #1d1d1f; }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 16px;
+            height: 1px;
+            background: #1d1d1f;
+            margin: 4px 0;
+        }
+
+        /* ============================================
+           HERO — Clean white, generous whitespace
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 6rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        .hero-portrait {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            background: #f5f5f7;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            color: #6e6e73;
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #fff;
+            background: #0071e3;
+            padding: 0.7rem 1.8rem;
+            border-radius: 980px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary:hover { background: #0077ed; }
+
+        .btn-secondary {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0071e3;
+            padding: 0.7rem 1.8rem;
+        }
+
+        .btn-secondary:hover { text-decoration: underline; }
+
+        /* ============================================
+           SECTIONS — SHARED
+           ============================================ */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .section-overline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0071e3;
+            margin-bottom: 0.6rem;
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+        }
+
+        .section .lead {
+            font-size: clamp(1rem, 1.6vw, 1.1rem);
+            font-weight: 300;
+            line-height: 1.7;
+            color: #6e6e73;
+            max-width: 640px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            padding: 1.8rem 1.5rem;
+            border-radius: 18px;
+            background: #fff;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            font-weight: 300;
+            color: #6e6e73;
+        }
+
+        .card-icon {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        /* ============================================
+           SECTION 1: WAS KOMMT AUF UNS ZU — f5f5f7
+           ============================================ */
+        .zukunft {
+            background: #f5f5f7;
+        }
+
+        .zukunft .card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        /* ============================================
+           SECTION 2: WAS FUNKTIONIERT HEUTE SCHON — white
+           ============================================ */
+        .praxis {
+            background: #fff;
+        }
+
+        .praxis .section-overline {
+            color: #1d1d1f;
+        }
+
+        .praxis .card {
+            background: #f5f5f7;
+            border: none;
+        }
+
+        .stat-number {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #1d1d1f;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-unit {
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #86868b;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        /* ============================================
+           SECTION 3: VORTRÄGE & IMPULSE — f5f5f7
+           ============================================ */
+        .impulse {
+            background: #f5f5f7;
+        }
+
+        .impulse .card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .topic-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 980px;
+            background: rgba(0, 113, 227, 0.08);
+            color: #0071e3;
+            margin-bottom: 0.7rem;
+        }
+
+        /* Referenzen */
+        .referenzen {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        .referenzen-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.8rem;
+        }
+
+        .ref-logos {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            color: #1d1d1f;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .speaker-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #0071e3;
+            margin-top: 1.5rem;
+        }
+
+        .speaker-link:hover { text-decoration: underline; }
+
+        /* Videos */
+        .video-section { margin-top: 3rem; }
+
+        .video-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16 / 9;
+            background: #e8e8ed;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #86868b;
+            font-size: 0.85rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 14px;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* ============================================
+           KONTAKT — white
+           ============================================ */
+        .kontakt {
+            padding: 6rem 2rem;
+            background: #fff;
+        }
+
+        .kontakt-inner {
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .kontakt .section-overline {
+            color: #0071e3;
+        }
+
+        .kontakt h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #1d1d1f;
+            margin-bottom: 0.6rem;
+        }
+
+        .kontakt .lead {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #6e6e73;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-form { text-align: left; }
+        .form-group { margin-bottom: 1rem; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 500;
+            margin-bottom: 0.35rem;
+            color: #6e6e73;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 0.9rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            border: 1px solid #d2d2d7;
+            border-radius: 10px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: #86868b; }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #0071e3;
+            box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+            background: #fff;
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #fff;
+            background: #0071e3;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover { background: #0077ed; }
+
+        /* ============================================
+           DIVIDER — thin line between white sections
+           ============================================ */
+        .section-divider {
+            max-width: 980px;
+            margin: 0 auto;
+            border: none;
+            border-top: 1px solid #e8e8ed;
+        }
+
+        /* ============================================
+           FOOTER — Subtle, light
+           ============================================ */
+        footer {
+            padding: 1.5rem 2rem;
+            background: #f5f5f7;
+            border-top: 1px solid #e8e8ed;
+        }
+
+        .footer-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: #86868b;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+            color: #86868b;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover { color: #1d1d1f; }
+
+        /* ============================================
+           SCROLL ANIMATIONS
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.08s; }
+        .fade-in-delay-2 { transition-delay: 0.16s; }
+        .fade-in-delay-3 { transition-delay: 0.24s; }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-mobile-toggle { display: block; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 48px;
+                left: 0; right: 0;
+                background: rgba(255, 255, 255, 0.97);
+                backdrop-filter: blur(20px);
+                padding: 1rem 1.5rem;
+                gap: 0.8rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+                min-height: auto;
+            }
+
+            .hero-portrait {
+                width: 110px;
+                height: 110px;
+            }
+
+            .section { padding: 4rem 1.5rem; }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .video-grid { grid-template-columns: 1fr; }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ref-logos {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Alexander König</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#zukunft">Zukunft</a></li>
+                <li><a href="#praxis">Praxis</a></li>
+                <li><a href="#impulse">Vorträge</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <button class="nav-mobile-toggle" id="navToggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="images/portrait.jpg" alt="Prof. Dr. Alexander König" class="hero-portrait"
+             onerror="this.style.background='#f5f5f7';">
+        <h1>Alexander König</h1>
+        <a href="https://de.wikipedia.org/wiki/Alexander_K%C3%B6nig_(Unternehmer)" target="_blank" rel="noopener" style="display:inline-block; font-size:0.8rem; font-weight:400; color:#86868b; margin-bottom:0.6rem; transition:color 0.2s;">Wikipedia ›</a>
+        <p class="subtitle">
+            Professor für Robotik und verkörperte KI an der TU München.<br>
+            Gründer und ehemaliger CEO eines Robotikunternehmens.<br>
+            Von der Forschung über die Gründung bis zur Skalierung.
+        </p>
+        <div class="hero-ctas">
+            <a href="#impulse" class="btn-primary">Vorträge entdecken</a>
+            <a href="#zukunft" class="btn-secondary">Mehr erfahren ›</a>
+        </div>
+    </section>
+
+    <!-- SECTION 1: WAS KOMMT AUF UNS ZU? -->
+    <section class="section zukunft" id="zukunft">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-overline">Was kommt auf uns zu?</p>
+                <h2>Die Zukunft entsteht<br>nicht im Vorlesungssaal.</h2>
+                <p class="lead">
+                    Am Lehrstuhl für Robotik und Systemintelligenz an der TU München
+                    arbeite ich mit 37 Wissenschaftlern an Robotik und verkörperter
+                    Künstlicher Intelligenz — an dem, was in fünf bis zehn Jahren
+                    Realität sein wird. Ich sehe, was funktioniert und was nicht,
+                    bevor es in der Zeitung steht.
+                </p>
+            </div>
+            <div class="card-grid">
+                <div class="card fade-in fade-in-delay-1">
+                    <span class="card-icon">🤖</span>
+                    <h3>Humanoide Roboter</h3>
+                    <p>
+                        Kung-Fu-Roboter aus China, Tesla Optimus, Figure —
+                        was davon ist Durchbruch und was ist Show?
+                        Ich ordne ein, was Unternehmen wirklich wissen müssen.
+                    </p>
+                </div>
+                <div class="card fade-in fade-in-delay-2">
+                    <span class="card-icon">🏥</span>
+                    <h3>Robotik in der Pflege</h3>
+                    <p>
+                        Mit dem Pflegeroboter Garmi erforschen wir,
+                        wie Robotik älteren Menschen ein selbstbestimmtes
+                        Leben ermöglicht — eine Antwort auf die
+                        drängendste Frage unserer Gesellschaft.
+                    </p>
+                    <div style="margin-top:0.8rem; display:flex; flex-wrap:wrap; gap:0.4rem 1.2rem;">
+                        <a href="https://www.ardmediathek.de/video/plusminus/roboter-in-der-pflege-mit-high-tech-gegen-den-fachkraeftemangel/das-erste/Y3JpZDovL2Rhc2Vyc3RlLmRlL3BsdXNtaW51cy82N2M0OTQzZC01YzFhLTRhYTItOGFiNy04YjFiODI4NzliNGQ" target="_blank" rel="noopener" style="font-size:0.82rem; font-weight:500; color:#0071e3;">ARD Plusminus ›</a>
+                        <a href="https://www.sueddeutsche.de/wirtschaft/pflege-roboter-fachkraeftemangel-li.3458513" target="_blank" rel="noopener" style="font-size:0.82rem; font-weight:500; color:#0071e3;">Süddeutsche Zeitung ›</a>
+                    </div>
+                </div>
+                <div class="card fade-in fade-in-delay-3">
+                    <span class="card-icon">🧠</span>
+                    <h3>Verlässliche KI</h3>
+                    <p>
+                        Als Fellow der Konrad Zuse School of Excellence
+                        forsche ich an KI, der man vertrauen kann —
+                        besonders dort, wo es um Menschenleben geht.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WAS FUNKTIONIERT HEUTE SCHON? -->
+    <section class="section praxis" id="praxis">
+        <div class="section-inner">
+            <hr class="section-divider" style="margin-bottom: 4rem;">
+            <div class="fade-in">
+                <p class="section-overline" style="color: #1d1d1f;">Was funktioniert heute schon?</p>
+                <h2>Nicht nur Theorie.<br>Auch Umsatz.</h2>
+                <p class="lead">
+                    Ich habe Reactive Robotics gegründet und acht Jahre lang
+                    als CEO geführt — von der Idee im Labor bis zum zugelassenen
+                    Medizinprodukt auf Intensivstationen in fünf Ländern.
+                    Ich weiß, was es kostet, Technologie auf den Markt zu bringen.
+                </p>
+            </div>
+            <div class="card-grid">
+                <div class="card fade-in fade-in-delay-1">
+                    <span class="stat-number">25 Mio. €</span>
+                    <span class="stat-unit">Venture Capital</span>
+                    <p>Über mehrere Runden aufgebaut, mit internationalen Investoren.</p>
+                </div>
+                <div class="card fade-in fade-in-delay-2">
+                    <span class="stat-number">CE + FDA</span>
+                    <span class="stat-unit">Zulassungen</span>
+                    <p>Klasse-IIa-Medizinprodukt. Von der Entwicklung bis zur Zulassung in EU und USA.</p>
+                </div>
+                <div class="card fade-in fade-in-delay-3">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-unit">Startups begleitet</span>
+                    <p>Als Techstars EIR, Siemens Next47 Coach und Berater im Bundestag.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: VORTRÄGE & IMPULSE -->
+    <section class="section impulse" id="impulse">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-overline">Vorträge & Impulse</p>
+                <h2>Einordnung statt Buzzwords.</h2>
+                <p class="lead">
+                    Jede Geschäftsleitung fragt sich: Wann wird Robotik für uns relevant?
+                    Was sollten wir jetzt tun — und was lieber lassen?
+                    Ich gebe Antworten, die auf Forschung und eigener unternehmerischer
+                    Erfahrung basieren.
+                </p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card fade-in fade-in-delay-1">
+                    <span class="topic-tag">Trending</span>
+                    <h3>Humanoide Roboter: Was ist real, was ist Hype?</h3>
+                    <p>
+                        Seit den tanzenden Robotern aus China fragt sich jedes
+                        Unternehmen: Werden wir abgehängt? Was funktioniert
+                        wirklich — und was ist nur Show?
+                    </p>
+                </div>
+                <div class="card fade-in fade-in-delay-2">
+                    <span class="topic-tag">Keynote</span>
+                    <h3>Vom Labor auf den Markt</h3>
+                    <p>
+                        Was ich als Professor beim Aufbau eines
+                        Robotikunternehmens gelernt habe — über Technologie,
+                        Teams, Investoren und Scheitern.
+                    </p>
+                </div>
+                <div class="card fade-in fade-in-delay-3">
+                    <span class="topic-tag">Gesellschaft</span>
+                    <h3>Die Zukunft der Pflege</h3>
+                    <p>
+                        Wie Roboter uns helfen, in Würde zu altern.
+                        Über Garmi, die Pflegekrise und Technologie
+                        als Partner — nicht als Ersatz.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Frühere Vorträge -->
+            <div class="referenzen fade-in">
+                <p class="referenzen-label">Frühere Vorträge</p>
+                <p style="font-size: 0.9rem; font-weight: 300; color: #6e6e73; line-height: 1.6;">
+                    Kundenevents, Führungskräfte-Offsites, Fachkonferenzen und Strategietage —
+                    in der Versicherungsbranche, Automobilindustrie, Medizintechnik und darüber hinaus.
+                </p>
+                <p style="font-size: 0.9rem; font-weight: 300; color: #6e6e73; line-height: 1.6; margin-top: 0.8rem;">
+                    Zuletzt u.a. am <a href="https://www.ifo.de/veranstaltung/2026-03-23/robotik-fuer-den-demografischen-wandel" target="_blank" rel="noopener" style="color: #0071e3; font-weight: 500;">ifo Institut</a> zum Thema
+                    „Robotik für den demografischen Wandel" — darüber, wie Robotik
+                    aus dem Labor in die Realität gebracht werden kann, um Wert
+                    für die Gesellschaft zu schaffen.
+                </p>
+            </div>
+
+            <!-- Videos -->
+            <div class="video-section fade-in">
+                <h3>Vorträge & Interviews</h3>
+                <div style="max-width: 640px;">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube-nocookie.com/embed/aYUxYYLb_2o"
+                                title="Vortrag Alexander König"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="kontakt" id="kontakt">
+        <div class="kontakt-inner">
+            <p class="section-overline">Kontakt</p>
+            <h2>Sprechen wir.</h2>
+            <p class="lead">
+                Interesse an einem Vortrag, Workshop oder Austausch?
+            </p>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" placeholder="ihre@email.de" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Nachricht</label>
+                    <textarea id="message" name="message" placeholder="Wie kann ich Ihnen helfen?" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-copy">&copy; 2026 König Consulting GbR</span>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="https://www.linkedin.com/in/thisisalexander" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Mobile nav
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(link =>
+            link.addEventListener('click', () => navLinks.classList.remove('open'))
+        );
+
+        // Scroll fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
