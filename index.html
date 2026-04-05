@@ -114,10 +114,11 @@
         }
 
         .hero-portrait {
-            width: 150px;
-            height: 150px;
+            width: 225px;
+            height: 225px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center 15%;
             margin-bottom: 2rem;
             background: #f5f5f7;
         }
@@ -241,9 +242,24 @@
         }
 
         .card-icon {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            display: block;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0071e3 0%, #40a0ff 100%);
+        }
+
+        .card-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #fff;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
         }
 
         /* ============================================
@@ -580,8 +596,8 @@
             }
 
             .hero-portrait {
-                width: 110px;
-                height: 110px;
+                width: 165px;
+                height: 165px;
             }
 
             .section { padding: 4rem 1.5rem; }
@@ -661,7 +677,7 @@
             </div>
             <div class="card-grid">
                 <div class="card fade-in fade-in-delay-1">
-                    <span class="card-icon">🤖</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="12" rx="2"/><line x1="9" y1="9" x2="9" y2="9.01"/><line x1="15" y1="9" x2="15" y2="9.01"/><path d="M9 13h6"/><line x1="8" y1="16" x2="8" y2="20"/><line x1="16" y1="16" x2="16" y2="20"/><line x1="3" y1="8" x2="5" y2="8"/><line x1="19" y1="8" x2="21" y2="8"/></svg></span>
                     <h3>Humanoide Roboter</h3>
                     <p>
                         Kung-Fu-Roboter aus China, Tesla Optimus, Figure —
@@ -670,7 +686,7 @@
                     </p>
                 </div>
                 <div class="card fade-in fade-in-delay-2">
-                    <span class="card-icon">🏥</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
                     <h3>Robotik in der Pflege</h3>
                     <p>
                         Mit dem Pflegeroboter Garmi erforschen wir,
@@ -684,7 +700,7 @@
                     </div>
                 </div>
                 <div class="card fade-in fade-in-delay-3">
-                    <span class="card-icon">🧠</span>
+                    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
                     <h3>Verlässliche KI</h3>
                     <p>
                         Als Fellow der Konrad Zuse School of Excellence
@@ -793,11 +809,19 @@
             <div class="video-section fade-in">
                 <h3>Vorträge & Interviews</h3>
                 <div style="max-width: 640px;">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube-nocookie.com/embed/aYUxYYLb_2o"
-                                title="Vortrag Alexander König"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+                    <div class="video-wrapper" id="videoContainer" style="cursor:pointer;" onclick="loadVideo()">
+                        <!-- Custom Thumbnail: ersetze src durch eigenes Bild (images/video-thumbnail.jpg) -->
+                        <img id="videoThumb" src="https://img.youtube.com/vi/aYUxYYLb_2o/maxresdefault.jpg"
+                             alt="Vortrag Alexander König"
+                             style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+                        <!-- Play Button Overlay -->
+                        <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; z-index:2;">
+                            <div style="width:68px; height:68px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background 0.2s ease;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                    <polygon points="6,3 20,12 6,21" fill="#fff"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -860,6 +884,14 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lazy-load YouTube on click (custom thumbnail)
+        function loadVideo() {
+            const container = document.getElementById('videoContainer');
+            container.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/aYUxYYLb_2o?autoplay=1" title="Vortrag Alexander König" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"></iframe>';
+            container.style.cursor = 'default';
+            container.onclick = null;
+        }
     </script>
 
 </body>
