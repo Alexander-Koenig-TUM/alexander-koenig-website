@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich — Prof. Dr. Alexander König</title>
+    <meta name="description" content="Prof. Dr. Alexander König: Professor für Robotik an der TU München, ehemaliger CEO von Reactive Robotics, PhD ETH Zürich, Postdoc Harvard Medical School.">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1d1d1f;
+            background: #fff;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ============================================
+           NAVIGATION — identical to index
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: -0.01em;
+            color: #1d1d1f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #424245;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover { color: #1d1d1f; }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 16px;
+            height: 1px;
+            background: #1d1d1f;
+            margin: 4px 0;
+        }
+
+        /* ============================================
+           HERO (about page)
+           ============================================ */
+        .about-hero {
+            padding: 9rem 2rem 4rem;
+            text-align: center;
+            background: #fff;
+        }
+
+        .about-hero .about-overline {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #0071e3;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: #1d1d1f;
+            max-width: 780px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .about-hero .about-lead {
+            font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+            font-weight: 300;
+            color: #6e6e73;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           CONTENT BLOCKS
+           ============================================ */
+        .content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .content section {
+            margin-bottom: 4rem;
+        }
+
+        .content .eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0071e3;
+            margin-bottom: 0.7rem;
+        }
+
+        .content h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            color: #1d1d1f;
+            margin-bottom: 1.2rem;
+        }
+
+        .content h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #1d1d1f;
+            margin-top: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #3d3d42;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .content p.muted {
+            color: #6e6e73;
+            font-size: 0.95rem;
+        }
+
+        .content a {
+            color: #0071e3;
+            font-weight: 500;
+        }
+
+        .content a:hover { text-decoration: underline; }
+
+        /* Timeline-style list for career/CV */
+        .timeline {
+            list-style: none;
+            border-left: 1px solid #e8e8ed;
+            padding-left: 1.4rem;
+            margin-top: 1rem;
+        }
+
+        .timeline li {
+            position: relative;
+            margin-bottom: 1.6rem;
+        }
+
+        .timeline li::before {
+            content: "";
+            position: absolute;
+            left: -1.48rem;
+            top: 0.55rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #0071e3;
+        }
+
+        .timeline .time-year {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #86868b;
+            margin-bottom: 0.15rem;
+        }
+
+        .timeline .time-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.15rem;
+        }
+
+        .timeline .time-sub {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #6e6e73;
+            line-height: 1.55;
+        }
+
+        /* Awards full list */
+        .awards-full {
+            list-style: none;
+        }
+
+        .awards-full li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f3;
+            display: flex;
+            gap: 1.2rem;
+            align-items: baseline;
+        }
+
+        .awards-full li:last-child {
+            border-bottom: none;
+        }
+
+        .awards-full .a-year {
+            flex: 0 0 4.5rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: #0071e3;
+            padding-top: 0.15rem;
+        }
+
+        .awards-full .a-body .a-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            letter-spacing: -0.005em;
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        .awards-full .a-body .a-sub {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #6e6e73;
+        }
+
+        /* Boards list */
+        .simple-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .simple-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #f0f0f3;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #1d1d1f;
+            line-height: 1.5;
+        }
+
+        .simple-list li:last-child { border-bottom: none; }
+
+        .simple-list .role {
+            font-weight: 600;
+        }
+
+        .simple-list .org {
+            font-weight: 300;
+            color: #6e6e73;
+        }
+
+        /* Call-to-action at bottom */
+        .about-cta {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: #f5f5f7;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .about-cta h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #1d1d1f;
+            margin-bottom: 0.6rem;
+        }
+
+        .about-cta p {
+            font-size: 0.95rem;
+            color: #6e6e73;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #fff !important;
+            background: #0071e3;
+            padding: 0.7rem 1.8rem;
+            border-radius: 980px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+            text-decoration: none !important;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 1.5rem 2rem;
+            background: #fff;
+            border-top: 1px solid #e8e8ed;
+        }
+
+        .footer-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: #86868b;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+            color: #86868b;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover { color: #1d1d1f; }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-mobile-toggle { display: block; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 48px;
+                left: 0; right: 0;
+                background: rgba(255, 255, 255, 0.97);
+                backdrop-filter: blur(20px);
+                padding: 1rem 1.5rem;
+                gap: 0.8rem;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            }
+
+            .about-hero {
+                padding: 6.5rem 1.5rem 2.5rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem 4rem;
+            }
+
+            .awards-full li {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+
+            .awards-full .a-year {
+                flex: initial;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">Alexander König</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#zukunft">Zukunft</a></li>
+                <li><a href="index.html#praxis">Praxis</a></li>
+                <li><a href="index.html#impulse">Vorträge</a></li>
+                <li><a href="ueber-mich.html">Über mich</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+            <button class="nav-mobile-toggle" id="navToggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="about-hero">
+        <p class="about-overline">Über mich</p>
+        <h1>Forscher, Gründer, Professor —<br>in dieser Reihenfolge.</h1>
+        <p class="about-lead">
+            Ich forsche an Robotik und verkörperter KI — und habe acht Jahre lang ein
+            Robotikunternehmen geführt, das wir durch Produktentwicklung, Markteintritt
+            und die Zulassung in Europa und den USA gebracht haben. Mein Thema ist die
+            Brücke: wie aus Forschung ein Produkt wird, das im Alltag bestehen muss.
+        </p>
+    </section>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+        <!-- Stationen -->
+        <section id="ausbildung">
+            <span class="eyebrow">Stationen</span>
+            <h2>ETH Zürich → Harvard → TU München.</h2>
+            <p>
+                Der Weg ging über Zürich und Boston nach München. Schwerpunkt durchgängig:
+                Robotik, KI und die Frage, wie Maschinen im Zusammenspiel mit Menschen
+                verlässlich funktionieren.
+            </p>
+            <ul class="timeline">
+                <li>
+                    <span class="time-year">ETH Zürich</span>
+                    <span class="time-title">Promotion</span>
+                    <span class="time-sub">
+                        Sensory-Motor Systems Lab. Thema: Human-in-the-Loop-Regelung
+                        für robotergestützte Rehabilitation.
+                    </span>
+                </li>
+                <li>
+                    <span class="time-year">Harvard Medical School</span>
+                    <span class="time-title">Post-Doctoral Fellow</span>
+                    <span class="time-sub">
+                        Department of Physical Medicine and Rehabilitation am Spaulding
+                        Rehabilitation Hospital — Forschung an der Schnittstelle von
+                        Robotik und klinischer Praxis.
+                    </span>
+                </li>
+                <li>
+                    <span class="time-year">TU München</span>
+                    <span class="time-title">Professor für Robotik und Systemintelligenz</span>
+                    <span class="time-sub">
+                        Seit 2023 zurück an der TUM — nach acht Jahren als Gründer und CEO.
+                    </span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Reactive Robotics -->
+        <section id="reactive-robotics">
+            <span class="eyebrow">Reactive Robotics</span>
+            <h2>Acht Jahre als Gründer und CEO.</h2>
+            <p>
+                2015 habe ich Reactive Robotics gegründet — ein Robotikunternehmen, das aus
+                meiner Forschung an der ETH hervorgegangen ist. Der Roboter mobilisiert
+                Patient:innen auf Intensivstationen: ein klassisches Robotikproblem in einem
+                regulatorisch anspruchsvollen Umfeld.
+            </p>
+            <p>
+                In acht Jahren haben wir das System durch jede Entwicklungsstufe bis ans Bett
+                gebracht — Forschung, Produkt, Software, CE-Zulassung, FDA Clearance, Vertrieb
+                in fünf Ländern. Dazu eine Organisation von rund 30 Mitarbeitenden, 25 Mio. €
+                Venture Capital in mehreren Runden und zwölf internationale Patente.
+            </p>
+            <p>
+                Was von der Zeit bleibt, ist weniger ein einzelnes Produkt als eine Perspektive:
+                wie aus Robotik-Forschung ein Unternehmen wird, welche Disziplinen — Produkt,
+                Regulatorik, Finanzierung, Vertrieb — dabei gleichzeitig funktionieren müssen,
+                und an welchen Stellen es wirklich schwierig wird.
+            </p>
+        </section>
+
+        <!-- TUM Lehrstuhl -->
+        <section id="tum">
+            <span class="eyebrow">Lehrstuhl</span>
+            <h2>Forschung an Robotik und verkörperter KI.</h2>
+            <p>
+                Am Lehrstuhl für Robotik und Systemintelligenz an der TU München arbeiten
+                37 Wissenschaftler:innen und Doktorand:innen an den Grundlagen dessen,
+                was in fünf bis zehn Jahren Alltag sein wird: verkörperte KI, verlässliche
+                Robotik und humanoide Systeme.
+            </p>
+            <p>
+                Zwei Schwerpunkte sind mir besonders wichtig. Im Rahmen der TUM Geriatronics
+                Initiative entwickeln wir mit Garmi einen Roboter, der ältere Menschen im Alltag
+                unterstützen soll. Als Fellow der rel-AI Konrad Zuse School of Excellence
+                forsche ich an verlässlicher KI — an Systemen, deren Entscheidungen auch dann
+                tragen, wenn viel auf dem Spiel steht.
+            </p>
+        </section>
+
+        <!-- Beiräte & Advisory -->
+        <section id="beiraete">
+            <span class="eyebrow">Boards &amp; Beirat</span>
+            <h2>Was ich außerhalb der Universität tue.</h2>
+            <p>
+                Bis heute rund 100 Deep-Tech-Startups als Mentor oder Advisor begleitet —
+                dazu Beirats- und Boardmandate in Unternehmen und Institutionen an der
+                Schnittstelle von Forschung, Wirtschaft und Politik.
+            </p>
+            <ul class="simple-list">
+                <li><span class="role">Entrepreneur in Residence</span> <span class="org">· Techstars Inc. (Berlin)</span></li>
+                <li><span class="role">Coach &amp; Advisor</span> <span class="org">· Siemens Accelerator „Next 47"</span></li>
+                <li><span class="role">Board Member</span> <span class="org">· Gordion Biosciences, Georgia Tech Europe, dehaze GmbH</span></li>
+                <li><span class="role">Board of Advisors</span> <span class="org">· Lime Medical, Jungle GmbH</span></li>
+                <li><span class="role">Judge</span> <span class="org">· Alchemist Accelerator (San Francisco)</span></li>
+                <li><span class="role">Beirat</span> <span class="org">· Enquête-Kommission des Deutschen Bundestages zu KI und Robotik</span></li>
+                <li><span class="role">Berater</span> <span class="org">· Prof. Dr. Alena Buyx, Präsidentin des Deutschen Ethikrats</span></li>
+                <li><span class="role">Leitung</span> <span class="org">· Expertenforum Pflege Bayern — Cluster Robotik in der Pflege</span></li>
+                <li><span class="role">Mitglied</span> <span class="org">· Stiftungsrat Stiftung Pfennigparade</span></li>
+            </ul>
+        </section>
+
+        <!-- Medien -->
+        <section id="medien">
+            <span class="eyebrow">Medien</span>
+            <h2>In den Medien.</h2>
+            <p>
+                Auszug aus aktuellen Berichterstattungen zu unserer Arbeit:
+            </p>
+            <ul class="simple-list">
+                <li><span class="role">ARD Plusminus</span> <span class="org">· „Roboter in der Pflege — mit High-Tech gegen den Fachkräftemangel"</span> — <a href="https://www.ardmediathek.de/video/plusminus/roboter-in-der-pflege-mit-high-tech-gegen-den-fachkraeftemangel/das-erste/Y3JpZDovL2Rhc2Vyc3RlLmRlL3BsdXNtaW51cy82N2M0OTQzZC01YzFhLTRhYTItOGFiNy04YjFiODI4NzliNGQ" target="_blank" rel="noopener">ansehen ›</a></li>
+                <li><span class="role">Süddeutsche Zeitung</span> <span class="org">· „Pflege-Roboter gegen Fachkräftemangel"</span> — <a href="https://www.sueddeutsche.de/wirtschaft/pflege-roboter-fachkraeftemangel-li.3458513" target="_blank" rel="noopener">lesen ›</a></li>
+                <li><span class="role">ifo Institut</span> <span class="org">· „Robotik für den demografischen Wandel"</span> — <a href="https://www.ifo.de/veranstaltung/2026-03-23/robotik-fuer-den-demografischen-wandel" target="_blank" rel="noopener">Veranstaltung ›</a></li>
+                <li><span class="role">Wikipedia</span> <span class="org">· Biografischer Artikel auf Deutsch</span> — <a href="https://de.wikipedia.org/wiki/Alexander_K%C3%B6nig_(Unternehmer)" target="_blank" rel="noopener">ansehen ›</a></li>
+            </ul>
+        </section>
+
+        <!-- Auszeichnungen -->
+        <section id="auszeichnungen">
+            <span class="eyebrow">Auszeichnungen</span>
+            <h2>Preise und Nominierungen.</h2>
+            <p>
+                Eine Übersicht aus den vergangenen Jahren.
+            </p>
+            <ul class="awards-full">
+                <li>
+                    <span class="a-year">2022</span>
+                    <div class="a-body">
+                        <span class="a-title">KPMG Innovator of the Year — 1. Platz</span>
+                        <span class="a-sub">Deutschland</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="a-year">2022</span>
+                    <div class="a-body">
+                        <span class="a-title">Deutscher Zukunftspreis — Shortlist</span>
+                        <span class="a-sub">Preis des Bundespräsidenten für Technik und Innovation</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="a-year">2021</span>
+                    <div class="a-body">
+                        <span class="a-title">EU Robotics Forum Technology Transfer Prize — 1. Platz</span>
+                        <span class="a-sub">European Robotics Forum</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="a-year">2021</span>
+                    <div class="a-body">
+                        <span class="a-title">German Innovation Award — 2. Platz</span>
+                        <span class="a-sub">Rat für Formgebung</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="a-year">2019</span>
+                    <div class="a-body">
+                        <span class="a-title">Best Boss — 1. Platz</span>
+                        <span class="a-sub">Europäischer Gesundheitskongress</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="a-year">2019</span>
+                    <div class="a-body">
+                        <span class="a-title">The Spark — Digitalpreis des Handelsblatts — Finalist</span>
+                        <span class="a-sub">Handelsblatt</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Publikationen / Editorial -->
+        <section id="publikationen">
+            <span class="eyebrow">Wissenschaftliche Arbeit</span>
+            <h2>Publikationen und Patente.</h2>
+            <p>
+                Rund 50 begutachtete Publikationen in Robotik, verkörperter KI,
+                Mensch-Maschine-Interaktion und Neurorehabilitation. Beiträge in
+                <em>Nature</em>, <em>Science</em> und <em>Cell</em>. Guest Editor des
+                <em>Journal of NeuroEngineering and Rehabilitation</em>. Zwölf internationale
+                Patente rund um robotische Systeme.
+            </p>
+        </section>
+
+        <!-- CTA -->
+        <div class="about-cta">
+            <h3>Interesse an einem Vortrag oder Austausch?</h3>
+            <p>Ich spreche regelmäßig auf Kundenevents, Führungskräfte-Offsites und Fachkonferenzen.</p>
+            <a href="index.html#kontakt" class="btn-primary">Kontakt aufnehmen</a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-copy">&copy; 2026 König Consulting GbR</span>
+            <div class="footer-links">
+                <a href="index.html">Startseite</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="https://www.linkedin.com/in/thisisalexander" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ---- Mobile nav ----
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(link =>
+            link.addEventListener('click', () => navLinks.classList.remove('open'))
+        );
+    </script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prof. Dr. Alexander König — Robotik, KI, Innovation</title>
-    <meta name="description" content="Professor für Robotik und verkörperte KI an der TU München. Gründer und CEO eines Robotik Scale-Ups. Keynote Speaker zu Robotik, KI und Innovation.">
+    <meta name="description" content="Professor für Robotik und verkörperte KI an der TU München. Acht Jahre lang CEO von Reactive Robotics. Keynote Speaker zu Robotik, KI und Innovation.">
     <!-- Google Fonts: erst nach Cookie-Consent laden -->
     <style>
         /* ============================================
@@ -106,7 +106,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 8rem 2rem 6rem;
+            padding: 8rem 2rem 5rem;
             background: #fff;
             text-align: center;
         }
@@ -121,6 +121,14 @@
             background: #f5f5f7;
         }
 
+        .hero-kicker {
+            font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+            font-weight: 500;
+            color: #424245;
+            letter-spacing: -0.015em;
+            margin-bottom: 1rem;
+        }
+
         .hero h1 {
             font-size: clamp(2.8rem, 6vw, 4.5rem);
             font-weight: 700;
@@ -130,13 +138,55 @@
             margin-bottom: 1rem;
         }
 
+        .hero-meta-links {
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-meta-links a {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #86868b;
+            margin: 0 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .hero-meta-links a:hover { color: #1d1d1f; }
+
         .hero .subtitle {
             font-size: clamp(1rem, 2vw, 1.25rem);
             font-weight: 300;
             color: #6e6e73;
-            max-width: 560px;
-            margin: 0 auto 2.5rem;
+            max-width: 620px;
+            margin: 0 auto 2rem;
             line-height: 1.6;
+        }
+
+        /* Credential strip — TUM · ETH · Harvard */
+        .credential-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0 2rem;
+            margin: 0 auto 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e8e8ed;
+            max-width: 620px;
+        }
+
+        .credential-strip .credential-item {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #424245;
+            letter-spacing: -0.005em;
+            line-height: 1.8;
+        }
+
+        .credential-strip .credential-sep {
+            font-size: 0.78rem;
+            color: #d2d2d7;
+            font-weight: 300;
         }
 
         .hero-ctas {
@@ -348,17 +398,6 @@
             margin-bottom: 0.8rem;
         }
 
-        .ref-logos {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            color: #1d1d1f;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
         .speaker-link {
             display: inline-flex;
             align-items: center;
@@ -379,23 +418,6 @@
             margin-bottom: 1.2rem;
         }
 
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.2rem;
-        }
-
-        .video-placeholder {
-            aspect-ratio: 16 / 9;
-            background: #e8e8ed;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #86868b;
-            font-size: 0.85rem;
-        }
-
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
@@ -413,11 +435,86 @@
         }
 
         /* ============================================
-           KONTAKT — white
+           AWARDS — white, between Impulse and Kontakt
+           ============================================ */
+        .awards {
+            background: #fff;
+            padding: 5rem 2rem;
+        }
+
+        .awards .section-inner {
+            max-width: 980px;
+            text-align: center;
+        }
+
+        .awards .section-overline {
+            color: #0071e3;
+        }
+
+        .awards h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: #1d1d1f;
+            margin-bottom: 0.8rem;
+        }
+
+        .awards .lead {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #6e6e73;
+            max-width: 560px;
+            margin: 0 auto 3rem;
+        }
+
+        .award-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+
+        .award-item {
+            padding: 1.4rem 0.8rem;
+            border-radius: 14px;
+            background: #f5f5f7;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 155px;
+        }
+
+        .award-year {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0071e3;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-title {
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #1d1d1f;
+            margin-bottom: 0.35rem;
+            letter-spacing: -0.01em;
+        }
+
+        .award-sub {
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: #6e6e73;
+            line-height: 1.4;
+        }
+
+        /* ============================================
+           KONTAKT — f5f5f7
            ============================================ */
         .kontakt {
             padding: 6rem 2rem;
-            background: #fff;
+            background: #f5f5f7;
         }
 
         .kontakt-inner {
@@ -464,7 +561,7 @@
             font-size: 0.95rem;
             border: 1px solid #d2d2d7;
             border-radius: 10px;
-            background: #f5f5f7;
+            background: #fff;
             color: #1d1d1f;
             outline: none;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -518,7 +615,7 @@
            ============================================ */
         footer {
             padding: 1.5rem 2rem;
-            background: #f5f5f7;
+            background: #fff;
             border-top: 1px solid #e8e8ed;
         }
 
@@ -540,6 +637,7 @@
         .footer-links {
             display: flex;
             gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -567,6 +665,7 @@
         .fade-in-delay-1 { transition-delay: 0.08s; }
         .fade-in-delay-2 { transition-delay: 0.16s; }
         .fade-in-delay-3 { transition-delay: 0.24s; }
+        .fade-in-delay-4 { transition-delay: 0.32s; }
 
         /* ============================================
            RESPONSIVE
@@ -589,7 +688,7 @@
             }
 
             .hero {
-                padding: 6rem 1.5rem 4rem;
+                padding: 6rem 1.5rem 3.5rem;
                 min-height: auto;
             }
 
@@ -605,20 +704,24 @@
                 gap: 0.8rem;
             }
 
-            .video-grid { grid-template-columns: 1fr; }
+            .award-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .credential-strip {
+                gap: 0 1.2rem;
+            }
 
             .footer-inner {
                 flex-direction: column;
                 text-align: center;
             }
-
-            .ref-logos {
-                gap: 1.5rem;
-            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
             .card-grid { grid-template-columns: repeat(2, 1fr); }
+            .award-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         /* ============================================
@@ -717,6 +820,7 @@
                 <li><a href="#zukunft">Zukunft</a></li>
                 <li><a href="#praxis">Praxis</a></li>
                 <li><a href="#impulse">Vorträge</a></li>
+                <li><a href="ueber-mich.html">Über mich</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
             <button class="nav-mobile-toggle" id="navToggle" aria-label="Menü">
@@ -731,16 +835,27 @@
     <section class="hero">
         <img src="images/portrait.jpg?v=2" alt="Prof. Dr. Alexander König" class="hero-portrait"
              onerror="this.style.background='#f5f5f7';">
-        <p style="font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 500; color: #424245; letter-spacing: -0.015em; margin-bottom: 1rem;">Von der Forschung über die Gründung bis zur Skalierung.</p>
+        <p class="hero-kicker">Von der Forschung über die Gründung bis zur Skalierung.</p>
         <h1>Prof. Dr. Alexander König</h1>
-        <div style="margin-bottom:0.6rem;">
-            <a href="https://de.wikipedia.org/wiki/Alexander_K%C3%B6nig_(Unternehmer)" target="_blank" rel="noopener" style="display:inline-block; font-size:0.8rem; font-weight:400; color:#86868b; margin:0 0.5rem; transition:color 0.2s;">Wikipedia ›</a>
-            <a href="https://www.linkedin.com/in/thisisalexander" target="_blank" rel="noopener" style="display:inline-block; font-size:0.8rem; font-weight:400; color:#86868b; margin:0 0.5rem; transition:color 0.2s;">LinkedIn ›</a>
+        <div class="hero-meta-links">
+            <a href="https://de.wikipedia.org/wiki/Alexander_K%C3%B6nig_(Unternehmer)" target="_blank" rel="noopener">Wikipedia ›</a>
+            <a href="https://www.linkedin.com/in/thisisalexander" target="_blank" rel="noopener">LinkedIn ›</a>
+            <a href="ueber-mich.html">Über mich ›</a>
         </div>
         <p class="subtitle">
             Professor für Robotik und verkörperte KI an der TU München.<br>
-            Gründer und CEO eines Robotik Scale-Ups.
+            Zuvor acht Jahre Gründer und CEO eines Robotikunternehmens —<br>inklusive CE- und FDA-Zulassung.
         </p>
+
+        <!-- Credential strip -->
+        <div class="credential-strip">
+            <span class="credential-item">TU München</span>
+            <span class="credential-sep">·</span>
+            <span class="credential-item">ETH Zürich</span>
+            <span class="credential-sep">·</span>
+            <span class="credential-item">Harvard Medical School</span>
+        </div>
+
         <div class="hero-ctas">
             <a href="#impulse" class="btn-primary">Vorträge entdecken</a>
             <a href="#zukunft" class="btn-secondary">Mehr erfahren ›</a>
@@ -806,10 +921,10 @@
                 <p class="section-overline" style="color: #1d1d1f;">Was funktioniert heute schon?</p>
                 <h2>Nicht nur Theorie.<br>Auch Umsatz.</h2>
                 <p class="lead">
-                    Ich habe Reactive Robotics gegründet und acht Jahre lang
-                    als CEO geführt — von der Idee im Labor bis zum zugelassenen
-                    Medizinprodukt auf Intensivstationen in fünf Ländern.
-                    Ich weiß, was es kostet, Technologie auf den Markt zu bringen.
+                    Mit Reactive Robotics habe ich acht Jahre lang ein Robotikunternehmen
+                    als CEO geführt — von der Forschung bis zum Produkt in Kliniken in
+                    fünf Ländern. Produktentwicklung, Fundraising, CE- und FDA-Zulassung,
+                    Vertrieb, Team-Aufbau.
                 </p>
             </div>
             <div class="card-grid">
@@ -824,9 +939,21 @@
                     <p>Klasse-IIa-Medizinprodukt. Von der Entwicklung bis zur Zulassung in EU und USA.</p>
                 </div>
                 <div class="card fade-in fade-in-delay-3">
+                    <span class="stat-number">12</span>
+                    <span class="stat-unit">Internationale Patente</span>
+                    <p>Rund um Medizinrobotik und neurologische Rehabilitation — erteilt in EU, USA und Asien.</p>
+                </div>
+            </div>
+            <div class="card-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 1.2rem;">
+                <div class="card fade-in fade-in-delay-1">
+                    <span class="stat-number">30</span>
+                    <span class="stat-unit">Mitarbeiter aufgebaut</span>
+                    <p>Organisation von Null auf 30 FTE — in Forschung, Produkt, Regulatorik und Vertrieb.</p>
+                </div>
+                <div class="card fade-in fade-in-delay-2">
                     <span class="stat-number">100+</span>
                     <span class="stat-unit">Startups begleitet</span>
-                    <p>Als Techstars EIR, Siemens Next47 Coach und Berater im Bundestag.</p>
+                    <p>Als Techstars EIR, Siemens Next47 Coach und Berater im Deutschen Bundestag.</p>
                 </div>
             </div>
         </div>
@@ -860,9 +987,9 @@
                     <span class="topic-tag">Keynote</span>
                     <h3>Vom Labor auf den Markt</h3>
                     <p>
-                        Was ich als Professor beim Aufbau eines
-                        Robotikunternehmens gelernt habe — über Technologie,
-                        Teams, Investoren und Scheitern.
+                        Was ich als Professor beim Aufbau von Reactive Robotics
+                        gelernt habe — über Technologie, Teams, Investoren und
+                        auch über das Scheitern.
                     </p>
                 </div>
                 <div class="card fade-in fade-in-delay-3">
@@ -896,11 +1023,9 @@
                 <h3>Vorträge & Interviews</h3>
                 <div style="max-width: 640px;">
                     <div class="video-wrapper" id="videoContainer" style="cursor:pointer;" onclick="loadVideo()">
-                        <!-- Custom Thumbnail: ersetze src durch eigenes Bild (images/video-thumbnail.jpg) -->
                         <img id="videoThumb" src="images/video-thumbnail.jpg"
                              alt="Vortrag Alexander König"
                              style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
-                        <!-- Play Button Overlay -->
                         <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; z-index:2;">
                             <div style="width:68px; height:68px; background:rgba(0,0,0,0.65); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background 0.2s ease;">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -914,6 +1039,44 @@
         </div>
     </section>
 
+    <!-- AWARDS -->
+    <section class="awards" id="auszeichnungen">
+        <div class="section-inner">
+            <div class="fade-in">
+                <p class="section-overline">Auszeichnungen</p>
+                <h2>Preise und Nominierungen.</h2>
+                <p class="lead">
+                    Eine Auswahl aus den vergangenen Jahren.
+                </p>
+            </div>
+            <div class="award-grid">
+                <div class="award-item fade-in fade-in-delay-1">
+                    <span class="award-year">2022 · 1. Platz</span>
+                    <span class="award-title">KPMG Innovator<br>of the Year</span>
+                    <span class="award-sub">Deutschland</span>
+                </div>
+                <div class="award-item fade-in fade-in-delay-2">
+                    <span class="award-year">2022 · Shortlist</span>
+                    <span class="award-title">Deutscher<br>Zukunftspreis</span>
+                    <span class="award-sub">Preis des Bundespräsidenten</span>
+                </div>
+                <div class="award-item fade-in fade-in-delay-3">
+                    <span class="award-year">2021 · 1. Platz</span>
+                    <span class="award-title">EU Robotics Forum<br>Technology Transfer Prize</span>
+                    <span class="award-sub">European Robotics Forum</span>
+                </div>
+                <div class="award-item fade-in fade-in-delay-4">
+                    <span class="award-year">2021 · 2. Platz</span>
+                    <span class="award-title">German<br>Innovation Award</span>
+                    <span class="award-sub">Rat für Formgebung</span>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.85rem; color: #86868b;">
+                <a href="ueber-mich.html#auszeichnungen" style="color:#0071e3; font-weight:500;">Alle Auszeichnungen ansehen ›</a>
+            </p>
+        </div>
+    </section>
+
     <!-- KONTAKT -->
     <section class="kontakt" id="kontakt">
         <div class="kontakt-inner">
@@ -923,7 +1086,6 @@
                 Interesse an einem Austausch, Workshop oder Vortrag?
             </p>
             <form class="contact-form" action="https://formsubmit.co/alexander.c.koenig@gmx.de" method="POST">
-                <!-- FormSubmit Konfiguration -->
                 <input type="hidden" name="_subject" value="Neue Kontaktanfrage über alexander-koenig.eu">
                 <input type="hidden" name="_captcha" value="true">
                 <input type="hidden" name="_next" value="https://alexander-koenig.eu#kontakt">
@@ -965,6 +1127,7 @@
         <div class="footer-inner">
             <span class="footer-copy">&copy; 2026 König Consulting GbR</span>
             <div class="footer-links">
+                <a href="ueber-mich.html">Über mich</a>
                 <a href="impressum.html">Impressum</a>
                 <a href="datenschutz.html">Datenschutz</a>
                 <a href="https://www.linkedin.com/in/thisisalexander" target="_blank" rel="noopener">LinkedIn</a>
@@ -1008,18 +1171,15 @@
             hideBanner();
         }
 
-        // Check consent on page load
         (function() {
             var consent = localStorage.getItem('cookie_consent');
             if (consent === 'accepted') {
                 loadGoogleFonts();
             } else if (!consent) {
-                // Show banner after short delay
                 setTimeout(function() {
                     document.getElementById('cookieBanner').classList.add('visible');
                 }, 600);
             }
-            // If 'declined': no fonts loaded, no banner shown
         })();
 
         // ---- Mobile nav ----
