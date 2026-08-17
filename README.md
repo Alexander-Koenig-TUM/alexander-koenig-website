@@ -17,11 +17,13 @@ This site is hosted via GitHub Pages. Any push to the `main` branch automaticall
 
 ## Dateien
 
-- `index.html` — Hauptseite (alles in einer Datei: HTML + CSS + JS)
-- `impressum.html` — Impressum
-- `datenschutz.html` — Datenschutzerklärung
-- `CNAME` — Custom Domain Konfiguration
-- `images/` — Bilder (Portrait etc.)
+- `index.html` — deutsche Hauptseite
+- `english.html` — englische Hauptseite
+- `ueber-mich.html` / `about-en.html` — Profil auf Deutsch und Englisch
+- `impressum.html` / `impressum-en.html` — Impressum auf Deutsch und Englisch
+- `datenschutz.html` / `privacy.html` — Datenschutz auf Deutsch und Englisch
+- `CNAME` — Custom-Domain-Konfiguration
+- `images/` — lokal eingebundene Bilder und Social Preview
 
 ## Änderungen vornehmen
 
