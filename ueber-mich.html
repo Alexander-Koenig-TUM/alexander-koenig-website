@@ -60,12 +60,24 @@
             font-size: 0.85rem;
             letter-spacing: -0.01em;
             color: #1d1d1f;
+            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 1.6rem;
             list-style: none;
+            margin-left: auto;
+        }
+
+        .nav-language {
+            font-size: .72rem;
+            font-weight: 600;
+            border: 1px solid #d2d2d7;
+            border-radius: 999px;
+            padding: .3rem .55rem;
+            margin-left: 1.2rem;
+            flex-shrink: 0;
         }
 
         .nav-links a {
@@ -387,9 +399,10 @@
         /* ============================================
            RESPONSIVE
            ============================================ */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .nav-links { display: none; }
             .nav-mobile-toggle { display: block; }
+            .nav-language { margin-left: auto; margin-right: .3rem; }
 
             .nav-links.open {
                 display: flex;
@@ -436,11 +449,10 @@
             <a href="index.html" class="nav-logo">Alexander König</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#themen">Keynotes</a></li>
-                <li><a href="index.html#profil">Profil</a></li>
-                <li><a href="ueber-mich.html">Über mich</a></li>
+                <li><a href="ueber-mich.html" aria-current="page">Profil</a></li>
                 <li><a href="index.html#kontakt">Kontakt</a></li>
             </ul>
-            <a href="about-en.html" lang="en" style="font-size:.72rem;font-weight:600;border:1px solid #d2d2d7;border-radius:999px;padding:.3rem .55rem;margin-left:auto;margin-right:.6rem;">EN</a>
+            <a href="about-en.html" lang="en" class="nav-language" aria-label="Switch to English">EN</a>
             <button class="nav-mobile-toggle" id="navToggle" aria-label="Menü">
                 <span></span>
                 <span></span>
