@@ -1,75 +1,221 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Prof. Dr. Alexander K&ouml;nig — Keynotes zu Robotik und verk&ouml;rperter KI</title>
-<meta name="description" content="Keynotes, Workshops und Beratung zu Robotik, verk&ouml;rperter KI und Deep Tech — auf Deutsch und Englisch.">
-<meta property="og:title" content="Prof. Dr. Alexander K&ouml;nig — Die KI verl&auml;sst den Bildschirm">
-<meta property="og:description" content="Keynotes f&uuml;r F&uuml;hrungsteams zu Robotik, verk&ouml;rter KI und Deep Tech.">
+<title>Prof. Dr. Alexander König — Robotik und verkörperte KI: Vorträge und Beratung</title>
+<meta name="description" content="Vorträge und Beratung zu Robotik und verkörperter KI für Vorstände, Geschäftsführungen und Strategieteams: Einordnung, Einstiegsstrategie, Use Cases und Sicherheit.">
+<meta property="og:title" content="Prof. Dr. Alexander König — Robotik. Wo fangen wir an?">
+<meta property="og:description" content="Vorträge und Beratung zu Robotik und verkörperter KI für Führungsteams.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alexander-koenig.eu/">
 <meta property="og:image" content="https://alexander-koenig.eu/images/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<style>:root{--black:#1d1d1f;--grey:#6e6e73;--light:#f5f5f7;--blue:#0071e3;--green:#d8ffe2}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--black);background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}.nav-shell{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}nav{width:min(1024px,calc(100% - 36px));height:52px;margin:auto;display:flex;align-items:center;justify-content:space-between}nav b{font-size:14px}.nav-actions{display:flex;align-items:center}.nav-links a{font-size:12px;text-decoration:none;margin-left:25px}.lang{font-size:12px;text-decoration:none;margin-left:20px;border:1px solid #d2d2d7;border-radius:999px;padding:6px 9px;font-weight:600}.hero{text-align:center;padding:110px 20px 80px;overflow:hidden}.eyebrow{color:#bf4800;font-size:18px;font-weight:600}.hero h1{font-size:clamp(56px,8vw,104px);line-height:.92;letter-spacing:-.065em;margin:20px auto 30px;max-width:1100px}.hero .lead{font-size:clamp(21px,2.4vw,30px);line-height:1.25;color:var(--grey);max-width:820px;margin:auto;font-weight:600}.actions{margin-top:35px}.button{display:inline-block;background:var(--blue);color:white;text-decoration:none;padding:12px 21px;border-radius:999px;margin:5px;font-size:17px}.link{color:var(--blue);text-decoration:none;margin:10px;font-size:17px}.hero-visual{width:min(980px,calc(100% - 36px));margin:65px auto 0;position:relative}.hero-visual img{width:100%;max-height:610px;object-fit:cover;border-radius:30px}.hero-visual:after{content:'Forschung wird Wirkung.';position:absolute;left:25px;bottom:25px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-radius:18px;padding:18px 22px;font-size:24px;font-weight:700}.reference{background:var(--light);text-align:center;padding:85px 20px}.reference span{display:block;color:var(--grey);font-size:15px;margin-bottom:24px}.reference img{width:180px;max-height:52px;object-fit:contain;margin:auto}.reference h2{font-size:clamp(32px,4vw,52px);letter-spacing:-.035em;margin:28px auto 12px}.reference p{color:var(--grey);font-size:18px}.section{padding:120px 0}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.section-title{text-align:center;font-size:clamp(45px,6vw,78px);line-height:1;letter-spacing:-.055em;margin:0 auto 65px;max-width:900px}.section-title span{color:var(--grey)}.bento{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.card{background:var(--light);border-radius:30px;padding:45px;min-height:420px;overflow:hidden;position:relative}.card.wide{grid-column:1/-1;min-height:500px;background:#000;color:#fff}.card .kicker{font-size:14px;font-weight:700;color:var(--blue)}.card h3{font-size:clamp(31px,4vw,48px);line-height:1.05;letter-spacing:-.04em;margin:22px 0 15px}.card p{font-size:19px;line-height:1.45;color:var(--grey);max-width:520px}.card.wide p{color:#a1a1a6}.card.wide img{position:absolute;width:54%;height:100%;right:0;top:0;object-fit:cover;opacity:.78}.card.wide .copy{position:relative;z-index:1;width:48%}.metrics{background:#000;color:#fff;padding:110px 0}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.metric{text-align:center;padding:30px 10px}.metric strong{display:block;font-size:clamp(34px,4vw,56px);letter-spacing:-.04em;background:linear-gradient(90deg,#64d2ff,#30d158);-webkit-background-clip:text;color:transparent}.metric span{color:#a1a1a6;font-size:16px}.format-card{background:linear-gradient(140deg,#eaf2ff,#f7f7fa);text-align:center;border-radius:34px;padding:80px 25px}.format-card h2{font-size:clamp(43px,6vw,76px);line-height:1;letter-spacing:-.05em;margin:0}.format-card p{color:var(--grey);font-size:21px;line-height:1.5;max-width:740px;margin:28px auto}.contact{background:var(--green);text-align:center;padding:110px 20px}.contact h2{font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.055em;margin:0 auto 28px;max-width:950px}.contact p{font-size:21px;color:#435348}.footer{width:min(1024px,calc(100% - 36px));margin:auto;padding:28px 0;color:var(--grey);font-size:12px;display:flex;justify-content:space-between}@media(max-width:760px){.nav-links{display:none}.hero{padding-top:75px}.hero-visual:after{font-size:17px}.bento,.metric-grid{grid-template-columns:1fr}.card.wide{min-height:620px}.card.wide .copy{width:100%}.card.wide img{width:100%;height:48%;top:auto;bottom:0}.section{padding:85px 0}.footer{display:block}.footer div{margin-top:10px}}</style>
-<style>.metric{border-top:1px solid #424245}.metric strong{background:none;-webkit-background-clip:initial;color:#f5f5f7}.contact{background:#000;color:#f5f5f7}.contact p{color:#a1a1a6}.contact .button{background:#0071e3}</style>
+<link rel="alternate" hreflang="en" href="https://alexander-koenig.eu/english.html">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="nav-shell"><nav><b>Alexander K&ouml;nig</b><div class="nav-actions">
-<div class="nav-links">
-<a href="#themen">Keynotes</a><a href="ueber-mich.html">Profil</a><a href="#kontakt">Kontakt</a>
-</div>
-<a class="lang" href="english.html" lang="en" aria-label="Switch to English">EN</a>
-</div></nav></header><main>
-<section class="hero"><span class="eyebrow">Keynotes zu Robotik und verk&ouml;rperter KI</span><h1>Die KI verl&auml;sst<br>den Bildschirm.</h1>
-<p class="lead">Die n&auml;chste Generation K&uuml;nstlicher Intelligenz sieht, lernt und handelt in der physischen Welt. Verstehen Sie fr&uuml;her, was wirklich kommt.</p>
-<div class="actions">
-<a class="button" href="#kontakt">Keynote anfragen</a><a class="link" href="#themen">Themen entdecken &rsaquo;</a>
-</div>
-<div class="hero-visual"><img src="images/reactive-robotics.jpg" alt="Alexander K&ouml;nig pr&auml;sentiert den Rehabilitationsroboter von Reactive Robotics"></div></section>
-<section class="reference"><span>KEYNOTE-REFERENZ</span><img src="images/munich-re-logo.svg" alt="Munich Re"><h2>Zukunft der Robotik und verk&ouml;rperten KI</h2>
-<p>Pers&ouml;nliche Referenz auf Anfrage verf&uuml;gbar.</p></section>
-<section class="section" id="themen"><div class="wrap">
-<h2 class="section-title">Drei Vortr&auml;ge. <span>Ein klarer Blick nach vorn.</span>
-</h2>
-<div class="bento">
-<article class="card wide"><div class="copy">
-<span class="kicker">KEYNOTE 01</span><h3>Was ist real.<br>Was ist Hype.</h3>
-<p>Humanoide Roboter und verk&ouml;rperte KI: F&auml;higkeiten, Grenzen und der Zeitpunkt wirtschaftlicher Relevanz.</p>
-</div>
-<img src="images/portrait.jpg" alt="Prof. Dr. Alexander K&ouml;nig"></article><article class="card"><span class="kicker">KEYNOTE 02</span><h3>Vom Labor<br>auf den Markt.</h3>
-<p>Was acht Jahre als Gr&uuml;nder und CEO &uuml;ber Technologie, Regulierung, Finanzierung und Skalierung lehren.</p></article><article class="card"><span class="kicker">KEYNOTE 03</span><h3>In W&uuml;rde<br>altern.</h3>
-<p>Wie Robotik Selbstst&auml;ndigkeit st&auml;rkt, Fachkr&auml;fte unterst&uuml;tzt und Pflege menschlicher machen kann.</p></article>
-</div>
+
+<header class="nav-shell"><nav>
+    <a class="brand" href="index.html">Alexander König</a>
+    <div class="nav-actions">
+        <div class="nav-links">
+            <a href="#themen">Vorträge</a>
+            <a href="#beratung">Beratung</a>
+            <a href="#branchen">Branchen</a>
+            <a href="ueber-mich.html">Profil</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
+        <a class="lang" href="english.html" lang="en" aria-label="Switch to English">EN</a>
+    </div>
+</nav></header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+    <span class="eyebrow">Vorträge und Beratung zu Robotik und verkörperter KI</span>
+    <h1>Robotik.<br>Wo fangen wir an?</h1>
+    <p class="lead">Welcher Anwendungsfall zuerst, welche Technologie, welcher Partner: Ich ordne für Vorstände und Strategieteams ein, was Robotik heute leistet, und begleite den Einstieg.</p>
+    <div class="actions">
+        <a class="button" href="#kontakt">Gespräch anfragen</a>
+        <a class="link" href="#themen">Vorträge &rsaquo;</a>
+        <a class="link" href="#beratung">Beratung &rsaquo;</a>
+    </div>
+    <figure class="hero-visual">
+        <img src="images/reactive-robotics.jpg" alt="Alexander König stellt Bundeskanzlerin Angela Merkel das Robotiksystem von Reactive Robotics vor">
+        <figcaption>Forschung wird Wirkung.</figcaption>
+    </figure>
+</section>
+
+<!-- REFERENZEN -->
+<section class="reference">
+    <span class="label">REFERENZEN</span>
+    <div class="ref-names">
+        <span>Munich Re</span>
+        <span>Siemens</span>
+        <!-- Platz für eine weitere Referenz: nach Freigabe als <span>Name</span> ergänzen -->
+    </div>
+    <p>Persönliche Referenzen auf Anfrage.</p>
+</section>
+
+<!-- DREI FRAGEN -->
+<section class="section" id="fragen"><div class="wrap">
+    <h2 class="section-title">Drei Fragen, <span>die fast jedes Führungsteam stellt.</span></h2>
+    <div class="grid three">
+        <article class="card">
+            <span class="kicker">FRAGE 01</span>
+            <h3>Wo fangen<br>wir an?</h3>
+            <p>Bei der Aufgabe, nicht beim Roboter. Gesucht ist der Prozess, in dem Automatisierung heute schon trägt. Dort beginnt man klein und messbar.</p>
+        </article>
+        <article class="card">
+            <span class="kicker">FRAGE 02</span>
+            <h3>Auf welches Pferd setzen wir?</h3>
+            <p>Humanoid, Cobot oder mobile Plattform, eigene Entwicklung oder Partner: Ich zeige, was technisch reif ist, was in drei Jahren kommt und was Demo bleibt.</p>
+        </article>
+        <article class="card">
+            <span class="kicker">FRAGE 03</span>
+            <h3>Was können wir<br>selbst tun?</h3>
+            <p>Welche Fähigkeiten ins Haus gehören, was sich einkaufen lässt und wie Startups, Hochschulen und Lieferanten sinnvoll eingebunden werden.</p>
+        </article>
+    </div>
 </div></section>
+
+<!-- VORTRÄGE -->
+<section class="section alt" id="themen"><div class="wrap">
+    <h2 class="section-title">Vier Vorträge. <span>Ein klarer Blick nach vorn.</span></h2>
+    <div class="bento">
+        <article class="card wide">
+            <div class="copy">
+                <span class="kicker">VORTRAG 01</span>
+                <h3>Was ist real.<br>Was ist Hype.</h3>
+                <p>Humanoide Roboter und verkörperte KI: was sie heute können, wo ihre Grenzen liegen und wann sie wirtschaftlich relevant werden.</p>
+            </div>
+            <img src="images/portrait.jpg" alt="Prof. Dr. Alexander König">
+        </article>
+        <article class="card">
+            <span class="kicker">VORTRAG 02</span>
+            <h3>Wo fangen<br>wir an?</h3>
+            <p>Der Einstieg in die Robotik: wie große Unternehmen ihn gefunden haben, welche Anwendungsfälle sich zuerst lohnen und was sich übertragen lässt.</p>
+        </article>
+        <article class="card">
+            <span class="kicker">VORTRAG 03</span>
+            <h3>Der vernetzte<br>Roboter.</h3>
+            <p>Cybersecurity für Maschinen, die handeln: Angriffe, Datenabfluss, Herkunft der Hardware, Fernsteuerung und Haftung. Was das Management wissen muss.</p>
+        </article>
+        <article class="card">
+            <span class="kicker">VORTRAG 04</span>
+            <h3>Vom Labor<br>auf den Markt.</h3>
+            <p>Was acht Jahre als Gründer und CEO eines Robotikunternehmens über Technologie, Regulierung, Finanzierung und Skalierung lehren.</p>
+        </article>
+    </div>
+</div></section>
+
+<!-- BERATUNG -->
+<section class="section" id="beratung"><div class="wrap">
+    <h2 class="section-title">Beratung. <span>Vom ersten Überblick bis zur Umsetzung.</span></h2>
+    <p class="section-lead">Für Vorstände, Geschäftsführungen und Strategieteams, die entscheiden müssen, ob, wo und mit wem sie in die Robotik einsteigen.</p>
+    <ul class="services">
+        <li>
+            <span class="num">01</span>
+            <h3>Einordnungs-Workshop</h3>
+            <p>Ein halber oder ganzer Tag mit Ihrem Führungsteam: Stand der Technik, Wettbewerb, Chancen und Risiken für Ihr Geschäft. Am Ende steht ein gemeinsames Bild, auf dem sich entscheiden lässt.</p>
+        </li>
+        <li>
+            <span class="num">02</span>
+            <h3>Einstiegsstrategie und Auswahl der Anwendungsfälle</h3>
+            <p>Wir bewerten Ihre Prozesse nach technischer Reife und wirtschaftlichem Nutzen, wählen die ersten Anwendungsfälle aus und legen fest, was Sie selbst aufbauen und was Sie mit Partnern lösen.</p>
+        </li>
+        <li>
+            <span class="num">03</span>
+            <h3>Challenge mit Startups</h3>
+            <p>Eine reale Aufgabe aus Ihrem Unternehmen, mehrere Teams, ein klarer Anreiz. So sehen Sie an Ergebnissen statt an Demos, welche Technologie in Ihrer Umgebung funktioniert.</p>
+        </li>
+        <li>
+            <span class="num">04</span>
+            <h3>Technologie-Prüfung für Investoren</h3>
+            <p>Eine unabhängige Einschätzung von Robotik- und KI-Unternehmen vor einer Beteiligung: Technik, Team, Schutzrechte, Zulassungsweg und Skalierbarkeit.</p>
+        </li>
+        <li>
+            <span class="num">05</span>
+            <h3>Laufendes Sparring</h3>
+            <p>Regelmäßiger Austausch als Berater oder Beirat, wenn Entscheidungen anstehen und eine zweite, unabhängige Sicht gebraucht wird.</p>
+        </li>
+    </ul>
+</div></section>
+
+<!-- BRANCHEN + SICHERHEIT -->
+<section class="section alt" id="branchen"><div class="wrap">
+    <h2 class="section-title">Wo Robotik <span>heute ankommt.</span></h2>
+    <p class="section-lead">Die Technik ist dieselbe, die Fragen sind es nicht. Vier Felder, in denen sich die Frage nach dem Einstieg besonders oft stellt.</p>
+    <div class="grid four">
+        <article class="card small">
+            <h3>Logistik</h3>
+            <p>Kommissionieren, Palettieren, Transport im Lager: welche Aufgaben sich heute automatisieren lassen und wo der Mensch schneller bleibt.</p>
+        </article>
+        <article class="card small">
+            <h3>Produktion</h3>
+            <p>Von der festen Zelle zur flexiblen Automatisierung: Cobots, mobile Manipulation und die Frage, was humanoide Systeme in der Fertigung ändern.</p>
+        </article>
+        <article class="card small">
+            <h3>Haushalt und Service</h3>
+            <p>Roboter verlassen die Fabrik. Was das für Gerätehersteller, Dienstleister und neue Geschäftsmodelle bedeutet.</p>
+        </article>
+        <article class="card small">
+            <h3>Medizin und Pflege</h3>
+            <p>Assistenzrobotik, die Fachkräfte entlastet und Selbstständigkeit erhält, in einem Umfeld mit hohen Anforderungen an Sicherheit und Zulassung.</p>
+        </article>
+    </div>
+    <div class="cyber" id="sicherheit">
+        <span class="kicker">QUERSCHNITTSTHEMA</span>
+        <h3>Sicherheit gehört von Anfang an dazu.</h3>
+        <p>Ein vernetzter Roboter ist ein Computer, der sich bewegt. Vier Punkte, die ins Management gehören und nicht erst in die IT.</p>
+        <div class="cyber-grid">
+            <div><strong>Angriffe auf vernetzte Roboter</strong><span>Was geschieht, wenn jemand von außen die Kontrolle übernimmt.</span></div>
+            <div><strong>Datenabfluss und Herkunft der Hardware</strong><span>Welche Daten ein Gerät sammelt und wohin sie fließen.</span></div>
+            <div><strong>Fernsteuerung und Teleoperation</strong><span>Wer mitsteuert, wenn der Roboter Hilfe braucht.</span></div>
+            <div><strong>Regulierung und Haftung</strong><span>Wer verantwortet, was die Maschine tut.</span></div>
+        </div>
+    </div>
+</div></section>
+
+<!-- SUBSTANZ -->
 <section class="metrics" id="profil"><div class="wrap">
-<h2 class="section-title">Substanz, <span>die hinter den Thesen steht.</span>
-</h2>
-<div class="metric-grid">
-<div class="metric">
-<strong>8-stellig</strong><span>Millionenbetr&auml;ge aufgebaut</span>
-</div>
-<div class="metric">
-<strong>50</strong><span>Mitarbeitende gef&uuml;hrt</span>
-</div>
-<div class="metric">
-<strong>12</strong><span>internationale Patente</span>
-</div>
-<div class="metric">
-<strong>100+</strong><span>Startups begleitet</span>
-</div>
-</div>
+    <h2 class="section-title">Substanz, <span>die hinter den Thesen steht.</span></h2>
+    <div class="metric-grid">
+        <div class="metric"><strong>8-stellig</strong><span>Finanzierung aufgebaut</span></div>
+        <div class="metric"><strong>50</strong><span>Mitarbeitende geführt</span></div>
+        <div class="metric"><strong>12</strong><span>internationale Patente</span></div>
+        <div class="metric"><strong>100+</strong><span>Startups begleitet</span></div>
+    </div>
+    <p class="note">Professor für Robotik und Systemintelligenz an der TU München. Zuvor acht Jahre Gründer und CEO der Reactive Robotics GmbH. Mentor und Coach bei Techstars und Siemens Next47.<br><a class="link" href="ueber-mich.html">Zum Profil &rsaquo;</a></p>
 </div></section>
+
+<!-- FORMATE -->
 <section class="section"><div class="wrap"><div class="format-card">
-<span class="eyebrow">30&ndash;120 Minuten &middot; Deutsch oder Englisch</span><h2>F&uuml;r die gro&szlig;e B&uuml;hne.<br>Und den Strategieraum.</h2>
-<p>Keynotes, Executive Workshops und Advisory &ndash; weltweit verf&uuml;gbar, mit aktuellem Schwerpunkt auf Deutschland und Europa.</p>
-<a class="link" href="ueber-mich.html">Mehr &uuml;ber Alexander K&ouml;nig &rsaquo;</a>
+    <span class="eyebrow">30&ndash;120 Minuten &middot; Deutsch oder Englisch</span>
+    <h2>Für die große Bühne.<br>Und den Strategieraum.</h2>
+    <p>Keynotes, Workshops für das Management und Beratungsprojekte, weltweit verfügbar, mit Schwerpunkt auf Deutschland und Europa.</p>
 </div></div></section>
-<section class="contact" id="kontakt"><h2>Geben Sie Ihrem Publikum einen klaren Blick nach vorn.</h2>
-<p>Robotik verst&auml;ndlich. Konsequenzen klar. Entscheidungen fundiert.</p>
-<a class="button" href="mailto:koenig@tum.de?subject=Anfrage%20Keynote">Verf&uuml;gbarkeit anfragen</a></section></main><footer class="footer"><span>&copy; 2026 Prof. Dr. Alexander K&ouml;nig</span><div>
-<a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a>
-</div></footer>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+    <h2>Sprechen wir über Ihren Einstieg in die Robotik.</h2>
+    <p>Vortrag, Workshop oder Beratung: Eine kurze Nachricht genügt.</p>
+    <a class="button" href="mailto:koenig@tum.de?subject=Anfrage%20Vortrag">Vortrag anfragen</a>
+    <a class="button ghost" href="mailto:koenig@tum.de?subject=Anfrage%20Beratung">Beratung anfragen</a>
+</section>
+
+</main>
+
+<footer class="footer">
+    <span>&copy; 2026 Prof. Dr. Alexander König</span>
+    <div>
+        <a href="impressum.html">Impressum</a> &middot;
+        <a href="datenschutz.html">Datenschutz</a> &middot;
+        <a href="https://www.linkedin.com/in/thisisalexander" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+</footer>
+
 </body>
 </html>

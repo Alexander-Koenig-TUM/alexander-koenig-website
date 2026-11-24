@@ -22,6 +22,7 @@ This site is hosted via GitHub Pages. Any push to the `main` branch automaticall
 - `ueber-mich.html` / `about-en.html` — Profil auf Deutsch und Englisch
 - `impressum.html` / `impressum-en.html` — Impressum auf Deutsch und Englisch
 - `datenschutz.html` / `privacy.html` — Datenschutz auf Deutsch und Englisch
+- `styles.css` — gemeinsames Stylesheet für Startseite und Profil (DE/EN)
 - `CNAME` — Custom-Domain-Konfiguration
 - `images/` — lokal eingebundene Bilder und Social Preview
 
